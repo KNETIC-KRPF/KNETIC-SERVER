@@ -5,7 +5,6 @@ const patches = db.get('patches');
 patches.remove();
 
 patches.insert(patch).then((result) => {
-	console.log(result);
-	db.close();
-
+    console.log(result);
+    db.close();
 });
