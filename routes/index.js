@@ -20,6 +20,13 @@ router.post('/', (req, res, next) => {
   });
 });
 
+router.put('/:id', (req, res) => {
+  patches.findOneAndUpdate({_id:req.params.id}, req.body)
+    .then(response => {
+      res.json(response);
+    });
+});
+
 router.delete('/', (req, res) => {
   patches.findOneAndDelete(req.body)
     .then(response => {
