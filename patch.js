@@ -1,4 +1,8 @@
 const patch = {
+  name: 'default',
+  type: 'default',
+  account_id: null,
+  author: null,
   oscillators: [
 		{
 	    id: 1,
