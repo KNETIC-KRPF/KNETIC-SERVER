@@ -1,6 +1,4 @@
-const ROOT_URL = (window.location.hostname === "localhost") ? `http://localhost:3000` : process.env.DATABASE_URL;
-
-const db = require('monk')(ROOT_URL);
+const db = require('monk')(process.env.DATABASE_URL);
 const patch = require('./patch');
 const account = require('./account-samples.js');
 const patches = db.get('patches');

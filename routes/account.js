@@ -1,10 +1,8 @@
-const ROOT_URL = (window.location.hostname === "localhost") ? `http://localhost:3000` : process.env.DATABASE_URL;
-
 const mongo = require('mongodb');
 const express = require('express');
 const router = express.Router();
 const monk = require('monk');
-const db =  monk(ROOT_URL);
+const db =  monk(process.env.DATABASE_URL);
 const accounts = db.get('accounts');
 
 
