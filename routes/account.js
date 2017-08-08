@@ -4,7 +4,7 @@ const mongo = require('mongodb');
 const express = require('express');
 const router = express.Router();
 const monk = require('monk');
-const db =  monk('mongodb://admin:Mongods@ds113063.mlab.com:13063/knetic');
+const db =  monk(process.env.MONGO_URI);
 const accounts = db.get('accounts');
 
 
