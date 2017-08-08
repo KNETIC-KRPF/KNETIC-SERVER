@@ -1,4 +1,6 @@
-const db = require('monk')('mongodb://admin:Mongods@ds113063.mlab.com:13063/knetic');
+const ROOT_URL = (window.location.hostname === "localhost") ? `http://localhost:3000` : DATABASE_URL;
+
+const db = require('monk')(ROOT_URL);
 const patch = require('./patch');
 const account = require('./account-samples.js');
 const patches = db.get('patches');
