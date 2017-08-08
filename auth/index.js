@@ -6,7 +6,6 @@ const monk = require('monk');
 const db =  monk('localhost:27017/patchdb');
 const accounts = db.get('accounts');
 
-
 function validUser(account){
 	const validEmail = typeof account.email == 'string' && account.email.trim() != '';
 	const validPassword = typeof account.password == 'string' && account.password.trim() != '';
@@ -63,9 +62,5 @@ router.post('/login', (req, res, next) =>{
 		next(new Error('The Information You Entered Is Not Valid'));
 	}
 });
-
-
-
-
 
 module.exports = router;
