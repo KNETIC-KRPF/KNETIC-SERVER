@@ -1,6 +1,6 @@
 const dotenv = require('dotenv').config();
 
-const db = require('monk')(process.env.MONGO_URI);
+const db = require('monk')(process.env.MONGODB_URI);
 const patch = require('./patch');
 const account = require('./account-samples.js');
 const patches = db.get('patches');
