@@ -1,8 +1,10 @@
+const dotenv = require('dotenv').config();
+
 const mongo = require('mongodb');
 const express = require('express');
 const router = express.Router();
 const monk = require('monk');
-const db =  monk('localhost:27017/patchdb');
+const db =  monk(process.env.MONGODB_URI);
 const accounts = db.get('accounts');
 
 
