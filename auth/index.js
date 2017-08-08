@@ -65,9 +65,18 @@ router.post('/login', (req, res, next) =>{
 				bcrypt.compare(req.body.password, account.password)
 				.then((result) =>{
 					if(result){
-						res.json({
-							account,
-							message: 'You Are Successfully Logged In!'
+						jwt.sign({
+							id: account._id,
+						}, process.env.TOKEN_SECRET, {
+							expiresIn: '7d'
+						}, (err, token) => {
+							console.log('err', err);
+							console.log('token', token);
+							res.json({
+								id: account._id,
+								token,
+								message: 'You Are Successfully Logged In'
+							});
 						});
 					} else {
 						next(new Error ('Incorrect Password!'));
