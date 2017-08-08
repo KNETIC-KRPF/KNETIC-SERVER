@@ -1,3 +1,5 @@
+const dotenv = require('dotenv').config();
+
 const mongo = require('mongodb');
 const express = require('express');
 const router = express.Router();

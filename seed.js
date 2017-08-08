@@ -1,3 +1,5 @@
+const dotenv = require('dotenv').config();
+
 const db = require('monk')(process.env.DATABASE_URL);
 const patch = require('./patch');
 const account = require('./account-samples.js');
