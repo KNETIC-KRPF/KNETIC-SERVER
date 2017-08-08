@@ -7,31 +7,31 @@ const accounts = db.get('accounts');
 
 
 router.get('/',(req,res) => {
-  const data = accounts.find({});
-  return data.then((data) => {
-    res.json(data)
-  });
+	const data = accounts.find({});
+	return data.then((data) => {
+		res.json(data);
+	});
 });
 
 router.post('/', (req, res, next) => {
-  accounts.insert(req.body)
-    .then(response => {
-      res.json(response);
-  });
+	accounts.insert(req.body)
+	.then(response => {
+		res.json(response);
+	});
 });
 
 router.put('/:id', (req, res) => {
-  accounts.findOneAndUpdate({_id:req.params.id}, req.body)
-    .then(response => {
-      res.json(response);
-    });
+	accounts.findOneAndUpdate({_id:req.params.id}, req.body)
+	.then(response => {
+		res.json(response);
+	});
 });
 
 router.delete('/:id', (req, res) => {
-  accounts.findOneAndDelete({_id:req.params.id})
-    .then(response => {
-      res.json(response);
-    });
+	accounts.findOneAndDelete({_id:req.params.id})
+		.then(response => {
+			res.json(response);
+		});
 });
 
 
