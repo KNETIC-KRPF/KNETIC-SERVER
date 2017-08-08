@@ -1,4 +1,4 @@
-const ROOT_URL = (window.location.hostname === "localhost") ? `http://localhost:3000` : DATABASE_URL;
+const ROOT_URL = (window.location.hostname === "localhost") ? `http://localhost:3000` : process.env.DATABASE_URL;
 
 const express = require('express');
 const router = express.Router();
