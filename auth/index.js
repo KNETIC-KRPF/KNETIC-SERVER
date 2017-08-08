@@ -9,50 +9,46 @@ const jwt = require('jsonwebtoken');
 
 require('dotenv').config();
 
-
-
 function validUser(account){
 	const validEmail = typeof account.email == 'string' && account.email.trim() != '';
 	const validPassword = typeof account.password == 'string' && account.password.trim() != '';
 	return validEmail && validPassword;
 }
 
-
 router.post('/signup', (req, res, next) =>{
-    if(validUser(req.body)){
-        accounts.findOne( { email: req.body.email } )
-        .then((account) =>{
-            if(account) {
-                next(new Error('Email Already In Use!'));
-            } else {
-                const account = req.body;
-                bcrypt.hash(req.body.password, 8)
-                .then((hash) =>{
-                    account.password = hash;
-                    accounts.insert(account)
-                    .then(account =>{
-                        jwt.sign({
-                            id: account._id,
-                        }, process.env.TOKEN_SECRET, {
-                            expiresIn: '7d'
-                        }, (err, token) =>{
-                            console.log('err', err);
-                            console.log('token', token);
-                            res.json({
-                                id: account._id,
-                                email: account.email,
-                                token: token,
-                                message: 'New Account Created'
-                            })
-                        })
-                    });
-
-                });
-            }
-        });
-    } else {
-        next(new Error ('Invalid User Info!'));
-    }
+	if(validUser(req.body)){
+		accounts.findOne( { email: req.body.email } )
+		.then((account) =>{
+			if(account) {
+				next(new Error('Email Already In Use!'));
+			} else {
+				const account = req.body;
+				bcrypt.hash(req.body.password, 8)
+				.then((hash) =>{
+					account.password = hash;
+					accounts.insert(account)
+					.then(account =>{
+						jwt.sign({
+							id: account._id,
+						}, process.env.TOKEN_SECRET, {
+							expiresIn: '7d'
+						}, (err, token) =>{
+							console.log('err', err);
+							console.log('token', token);
+							res.json({
+								id: account._id,
+								email: account.email,
+								token: token,
+								message: 'New Account Created'
+							});
+						});
+					});
+				});
+			}
+		});
+	} else {
+		next(new Error ('Invalid User Info!'));
+	}
 });
 
 router.post('/login', (req, res, next) =>{
