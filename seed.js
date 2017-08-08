@@ -1,4 +1,4 @@
-const db = require('monk')('localhost:27017/patchdb');
+const db = require('monk')('mongodb://admin:Mongods@ds113063.mlab.com:13063/knetic');
 const patch = require('./patch');
 const account = require('./account-samples.js');
 const patches = db.get('patches');

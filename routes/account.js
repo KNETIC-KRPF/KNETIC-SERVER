@@ -2,7 +2,7 @@ const mongo = require('mongodb');
 const express = require('express');
 const router = express.Router();
 const monk = require('monk');
-const db =  monk('localhost:27017/patchdb');
+const db =  monk('mongodb://admin:Mongods@ds113063.mlab.com:13063/knetic');
 const accounts = db.get('accounts');
 
 
