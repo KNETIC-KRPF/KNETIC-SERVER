@@ -7,31 +7,31 @@ const patches = db.get('patches');
 
 
 router.get('/',(req,res) => {
-  const data = patches.find({});
-  return data.then((data) => {
-    res.json(data)
-  });
+	const data = patches.find({});
+	return data.then((data) => {
+		res.json(data);
+	});
 });
 
 router.post('/', (req, res, next) => {
-  patches.insert(req.body)
-    .then(response => {
-      res.json(response);
-  });
+	patches.insert(req.body)
+	.then(response => {
+		res.json(response);
+	});
 });
 
 router.put('/:id', (req, res) => {
-  patches.findOneAndUpdate({_id:req.params.id}, req.body)
-    .then(response => {
-      res.json(response);
-    });
+	patches.findOneAndUpdate({_id:req.params.id}, req.body)
+	.then(response => {
+		res.json(response);
+	});
 });
 
 router.delete('/', (req, res) => {
-  patches.findOneAndDelete(req.body)
-    .then(response => {
-      res.json(response);
-    });
+	patches.findOneAndDelete(req.body)
+	.then(response => {
+		res.json(response);
+	});
 });
 
 
