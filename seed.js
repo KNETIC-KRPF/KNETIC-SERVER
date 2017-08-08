@@ -1,6 +1,6 @@
 const dotenv = require('dotenv').config();
 
-const db = require('monk')(process.env.DATABASE_URL);
+const db = require('monk')('mongodb://admin:Mongods@ds113063.mlab.com:13063/knetic');
 const patch = require('./patch');
 const account = require('./account-samples.js');
 const patches = db.get('patches');

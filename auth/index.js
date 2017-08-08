@@ -5,7 +5,7 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 const mongo = require('mongodb');
 const monk = require('monk');
-const db =  monk(process.env.DATABASE_URL);
+const db =  monk('mongodb://admin:Mongods@ds113063.mlab.com:13063/knetic');
 const accounts = db.get('accounts');
 const jwt = require('jsonwebtoken');
 
