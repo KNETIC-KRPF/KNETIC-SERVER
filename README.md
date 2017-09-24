@@ -33,8 +33,9 @@ Set up your local mongodb databse
 ```
 mongod --dbpath=/data --port 27017
 ```
-Set your MONGODB_URI to the local mongodb you've created (i.e., 'localhost:27017/myproject').
-in your project folder, in the command line, run ```node seed.js```
+Set your MONGODB_URI in your .env to the local mongodb you've created (i.e., 'localhost:27017/myproject').
+
+In your project folder, in the command line, run ```node seed.js```
 
 ## Getting Started
 
