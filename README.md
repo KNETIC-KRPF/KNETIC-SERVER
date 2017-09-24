@@ -20,10 +20,21 @@ brew install mongodb
 mkdir -p /data/db
 
 mongod
-
+```
+If your PATH doesn't include the location of mongod binary, enter the path in the system prompt
+```
 <path to binary>/mongod
-
+```
+If you are not using the default data directory (/data/db) specify using the <code>--dbpath</code>
+```
 mongod --dbpath <path to data directory>
+```
+```
+mongod --dbpath=/data --port 27017
+```
+Set your MONGODB_URI to the local mongodb you've created (i.e., 'localhost:27017/myproject')
+```
+in your project folder, in the command line, run node seed.js
 ```
 
 ## Getting Started
